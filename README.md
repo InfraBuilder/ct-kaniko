@@ -7,7 +7,6 @@ This Docker image provides a free, open-source implementation of Kaniko, a tool 
 [![Docker Pulls](https://img.shields.io/docker/pulls/infrabuilder/kaniko)](https://hub.docker.com/r/infrabuilder/kaniko)
 [![Docker Image Vulnerabilities](https://img.shields.io/badge/security-scanned-brightgreen)](https://hub.docker.com/r/infrabuilder/kaniko)
 [![GitHub Repo](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/infrabuilder/kaniko)
-[![CI](https://github.com/infrabuilder/kaniko/actions/workflows/docker-build-push.yml/badge.svg)](https://github.com/infrabuilder/kaniko/actions)
 [![Docker Weekly Build](https://img.shields.io/badge/autobuild-weekly-brightgreen)](https://hub.docker.com/r/infrabuilder/kaniko)
 
 
