@@ -30,13 +30,23 @@ This image provides a free alternative based on the [Wolfi](https://wolfi.dev/) 
 The most common use case for Kaniko is building Docker images in CI/CD pipelines or Kubernetes clusters without requiring Docker daemon access.
 
 ```bash
+# Build only without pushing image
 docker run \
   -v $(pwd):/workspace \
   -v $HOME/.docker/config.json:/kaniko/.docker/config.json:ro \
   infrabuilder/kaniko:latest \
   --dockerfile=/workspace/Dockerfile \
   --context=/workspace \
-  --destination=your-registry/your-image:tag
+  --no-push
+
+# Build and push
+docker run \
+  -v $(pwd):/workspace \
+  -v $HOME/.docker/config.json:/kaniko/.docker/config.json:ro \
+  infrabuilder/kaniko:latest \
+  --dockerfile=/workspace/Dockerfile \
+  --context=/workspace \
+  --destination=your-registry/your-image:tag # Replace with your image canonical name
 ```
 
 ### GitLab CI Example
