@@ -33,47 +33,18 @@ The most common use case for Kaniko is building Docker images in CI/CD pipelines
 docker run \
   -v $(pwd):/workspace \
   -v $HOME/.docker/config.json:/kaniko/.docker/config.json:ro \
-  your-registry/ct-kaniko:latest \
+  infrabuilder/kaniko:latest \
   --dockerfile=/workspace/Dockerfile \
   --context=/workspace \
   --destination=your-registry/your-image:tag
-```
-
-### Kubernetes Example
-
-Here's an example of using this image in a Kubernetes Pod to build and push an image:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: kaniko-build
-spec:
-  containers:
-  - name: kaniko
-    image: your-registry/ct-kaniko:latest
-    args:
-    - --dockerfile=/workspace/Dockerfile
-    - --context=/workspace
-    - --destination=your-registry/your-image:tag
-    volumeMounts:
-    - name: workspace
-      mountPath: /workspace
-    - name: docker-config
-      mountPath: /kaniko/.docker
-  volumes:
-  - name: workspace
-    emptyDir: {}
-  - name: docker-config
-    secret:
-      secretName: docker-config
 ```
 
 ### GitLab CI Example
 
 ```yaml
 build:
-  image: your-registry/ct-kaniko:latest
+  image: infrabuilder/ct-kaniko:latest
+  entrentrypoint: [""]
   script:
     - /usr/bin/executor
       --dockerfile=$CI_PROJECT_DIR/Dockerfile
