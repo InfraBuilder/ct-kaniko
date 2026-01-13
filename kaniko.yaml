@@ -6,6 +6,7 @@ contents:
   packages:
     - ca-certificates
     - kaniko
+    - wolfi-base
     - bash
 
 
