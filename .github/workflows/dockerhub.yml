@@ -24,8 +24,6 @@ jobs:
         uses: distroless/actions/apko-publish@main
         with:
           config: kaniko.yaml
-          tag: |
-            docker.io/infrabuilder/kaniko:latest 
-            docker.io/infrabuilder/kaniko:${{ steps.date.outputs.value }}
+          tag: docker.io/infrabuilder/kaniko:latest docker.io/infrabuilder/kaniko:${{ steps.date.outputs.value }}
           generic-user: ${{ vars.DOCKERHUB_USERNAME }}
           generic-pass: ${{ secrets.DOCKERHUB_TOKEN }}
