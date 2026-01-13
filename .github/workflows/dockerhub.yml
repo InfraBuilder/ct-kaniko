@@ -14,11 +14,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Compute date
+        id: date
+        run: |
+          echo "value=$(date +'%Y%m%d-%H%M%S')" >> "$GITHUB_OUTPUT"
       
       - name: Build and publish with apko
         uses: distroless/actions/apko-publish@main
         with:
           config: kaniko.yaml
-          tag: docker.io/infrabuilder/kaniko:latest
+          tag: |
+            docker.io/infrabuilder/kaniko:latest 
+            docker.io/infrabuilder/kaniko:${{ steps.date.outputs.value }}
           generic-user: ${{ vars.DOCKERHUB_USERNAME }}
           generic-pass: ${{ secrets.DOCKERHUB_TOKEN }}
