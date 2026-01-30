@@ -54,7 +54,7 @@ docker run \
 ```yaml
 build:
   image:
-    name: infrabuilder/ct-kaniko:latest
+    name: infrabuilder/kaniko:latest
     entrypoint: [""]
   script:
     - /usr/bin/executor
