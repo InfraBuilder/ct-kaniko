@@ -53,8 +53,9 @@ docker run \
 
 ```yaml
 build:
-  image: infrabuilder/ct-kaniko:latest
-  entrentrypoint: [""]
+  image:
+    name: infrabuilder/ct-kaniko:latest
+    entrypoint: [""]
   script:
     - /usr/bin/executor
       --dockerfile=$CI_PROJECT_DIR/Dockerfile
