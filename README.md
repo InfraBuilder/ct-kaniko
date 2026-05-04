@@ -2,7 +2,6 @@
 
 This Docker image provides a free, open-source implementation of Kaniko, a tool for building container images from a Dockerfile inside a container or Kubernetes cluster without privileged access.
 
-
 [![Docker Image Size](https://img.shields.io/docker/image-size/infrabuilder/kaniko/latest)](https://hub.docker.com/r/infrabuilder/kaniko)
 [![Docker Pulls](https://img.shields.io/docker/pulls/infrabuilder/kaniko)](https://hub.docker.com/r/infrabuilder/kaniko)
 [![Docker Image Vulnerabilities](https://img.shields.io/badge/security-scanned-brightgreen)](https://hub.docker.com/r/infrabuilder/kaniko)
