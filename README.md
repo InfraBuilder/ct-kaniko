@@ -52,7 +52,11 @@ docker run \
 ### GitLab CI Example
 
 ```yaml
+stages:
+- build
+
 build:
+  stage: build
   image:
     name: infrabuilder/kaniko:latest
     entrypoint: [""]
@@ -60,7 +64,7 @@ build:
     - /usr/bin/executor
       --dockerfile=$CI_PROJECT_DIR/Dockerfile
       --context=$CI_PROJECT_DIR
-      --destination=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+      --destination=$CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
 ```
 
 ## About Wolfi
